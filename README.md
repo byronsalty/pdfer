@@ -1,8 +1,8 @@
 # PDFer
 
-This project started as following [this article on Medium by <author>](link?), but evolved to add Docker to resolve the sticky issue of system dependencies to do full generations. Things like making sure you have headless_chrome installed and configured correctly.
+This project started as following [this article on Medium](https://medium.com/@skdomino/how-to-generate-a-pdf-with-elixir-in-20-lines-of-code-4e94267950af) by Steve Domino, but evolved to add Docker to resolve the sticky issue of system dependencies to do full generations. Things like making sure you have headless_chrome installed and configured correctly.
 
-This is not intended to be an exhaustive list of capabilities possible, take a look at the [PDF Generator docs](https://link.link)
+This is not intended to be an exhaustive list of capabilities possible, take a look at the [PDF Generator docs](https://hexdocs.pm/pdf_generator/PdfGenerator.html) for more variations and possibilities.
 
 ## Setup
 
