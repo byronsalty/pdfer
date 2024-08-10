@@ -13,6 +13,13 @@ RUN apt-get update -y && apt-get install -y build-essential git \
     wget gnupg curl xfonts-base xfonts-75dpi libfontconfig1 libxrender1 fontconfig \
     && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
+# Install Node.js and npm
+RUN wget -qO- https://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get install -y nodejs
+
+# Install chrome-headless-render-pdf and puppeteer globally
+RUN npm install -g chrome-headless-render-pdf puppeteer
+
 # Prepare build dir
 WORKDIR /app
 
@@ -83,10 +90,5 @@ ENV MIX_ENV="prod"
 COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/pdfer ./
 
 USER nobody
-
-# If using an environment that doesn't automatically reap zombie processes, it is
-# advised to add an init process such as tini via `apt-get install`
-# above and adding an entrypoint. See https://github.com/krallin/tini for details
-# ENTRYPOINT ["/tini", "--"]
 
 CMD ["/app/bin/server"]
